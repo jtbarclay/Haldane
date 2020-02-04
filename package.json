@@ -1,0 +1,19 @@
+{
+  "name": "haldane",
+  "version": "1.0.0",
+  "description": "Raspberry Pi based IoT Environmental Sensor I'm building to explore different tech stacks and DevOps concepts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtbarclay/Haldane.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtbarclay/Haldane/issues"
+  },
+  "homepage": "https://github.com/jtbarclay/Haldane#readme"
+}
