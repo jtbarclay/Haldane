@@ -1,0 +1,13 @@
+kind: pipeline
+name: haldane
+
+workspace:
+    base: /Haldane
+    path: src/github.com/jtbarclay/Haldane
+
+steps:
+    - name: server
+      image: node
+      commands:
+      - npm ci
+      - npm start
