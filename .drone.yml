@@ -9,8 +9,7 @@ platform:
 steps:
     - name: backend
       commands:
-      - npm install
-      - npm start
+      - echo hello world
 
 trigger:
     branch:
