@@ -7,8 +7,12 @@ platform:
     arch: arm
 
 steps:
-    - name: backend
+    - name: killnode
+      failure: ignore
       commands:
       - killall node
+
+    - name: backend
+      commands:
       - npm install
       - npm start
