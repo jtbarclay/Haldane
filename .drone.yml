@@ -1,14 +1,13 @@
 kind: pipeline
-type: docker
-name: pi-node
+type: exec
+name: pi-exec
 
 platform:
     os: linux
     arch: arm
 
 steps:
-    - name: server
-      image: node
+    - name: backend
       commands:
       - npm install
       - npm start
