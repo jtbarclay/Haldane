@@ -7,11 +7,11 @@ platform:
     arch: arm
 
 steps:
-- name: server
-    image: node:alpine
-    commands:
-        - npm install
-        - npm start
+    - name: server
+      image: node
+      commands:
+      - npm install
+      - npm start
 
 trigger:
     branch:
