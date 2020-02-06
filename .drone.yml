@@ -10,7 +10,3 @@ steps:
     - name: backend
       commands:
       - echo hello world
-
-trigger:
-    branch:
-        - master
