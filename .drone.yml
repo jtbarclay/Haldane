@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: pi
+name: pi-node
 
 steps:
     - name: server
