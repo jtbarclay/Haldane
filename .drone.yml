@@ -1,9 +1,6 @@
 kind: pipeline
+type: docker
 name: haldane
-
-workspace:
-    base: /Haldane
-    path: src/github.com/jtbarclay/Haldane
 
 steps:
     - name: server
