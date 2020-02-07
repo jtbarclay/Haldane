@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
 
 app.get('/close', (rrq, res) => {
     res.send('closing...');
-    app.close();
+    var server = app.listen( PORT );
+    server.close();
 });
 
 app.listen(PORT, () => {
