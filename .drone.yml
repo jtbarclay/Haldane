@@ -13,6 +13,7 @@ steps:
       - killall node
 
     - name: backend
+      detach: true
       commands:
       - npm install
       - npm start
