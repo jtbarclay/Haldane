@@ -22,10 +22,9 @@ app.get('/', (req, res) => {
 
 app.get('/close', (rrq, res) => {
     res.send('closing...');
-    var server = app.listen( PORT );
     server.close();
 });
 
-app.listen(PORT, () => {
+var server = app.listen(PORT, () => {
     console.log('up and running on port', PORT);
 });
