@@ -12,11 +12,7 @@ steps:
       commands:
       - killall node
 
-    - name: install
+    - name: run
       commands:
       - npm install
-
-    - name: run
-      detach: true
-      commands:
       - npm start
