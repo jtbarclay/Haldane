@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
     res.send('hello world');
 });
 
+var server = app.listen(PORT, () => {
+    console.log('up and running on port', PORT);
+});
+
 app.get('/close', (rrq, res) => {
     res.send('closing...');
     server.close();
-});
-
-var server = app.listen(PORT, () => {
-    console.log('up and running on port', PORT);
 });
