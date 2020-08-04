@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: haldane
+  labels:
+    app: haldane-server
+spec:
+  type: ClusterIP
+  selector:
+    app: haldane-server
+  ports:
+    - protocol: TCP
+      name: http
+      port: 5000
+      targetPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haldane-server
+  labels:
+    app: haldane-server
+  annotations:
+spec:
+ replicas: 1
+ selector:
+    matchLabels:
+      app: haldane-server
+ template:
+   metadata:
+     labels:
+       app: haldane-server
+   spec:
+     containers:
+     - name: haldane-server
+       image: "jtbarclay/haldane"
+       ports:
+       - containerPort: 5000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: haldane-server
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: haldane.jtbarclay.dev
+    http:
+      paths:
+      - backend:
+          serviceName: haldane
+          servicePort: 5000
+        path: /
+  tls:
+  - hosts:
+    - haldane.jtbarclay.dev
+    secretName: haldane-jtbarclay-dev-tls

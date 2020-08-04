@@ -1,18 +1,30 @@
 kind: pipeline
-type: exec
-name: pi-exec
+type: kubernetes
+name: pi-kube
 
 platform:
-    os: linux
-    arch: arm
+  os: linux
+  arch: arm
 
 steps:
-    - name: killnode
-      failure: ignore
-      commands:
-      - killall node
+- name: publish
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: jtbarclay/haldane
+    tags: ["${DRONE_COMMIT_SHA:0:7}", "latest"]
 
-    - name: run
-      commands:
-      - npm install
-      - npm start
+- name: deploy
+  image: sinlead/drone-kubectl
+  settings:
+    kubernetes_server:
+      from_secret: k3s_server
+    kubernetes_cert:
+      from_secret: k3s_cert
+    kubernetes_token:
+      from_secret: k3s_token
+  commands:
+    - kubectl -n drone apply -f deployment.yml
