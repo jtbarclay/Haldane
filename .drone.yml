@@ -18,7 +18,7 @@ steps:
     tags: ["${DRONE_COMMIT_SHA:0:7}", "latest"]
 
 - name: deploy
-  image: sinlead/drone-kubectl
+  image: jtbarclay/drone-kubectl
   settings:
     kubernetes_server:
       from_secret: k3s_server
