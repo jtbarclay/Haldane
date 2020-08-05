@@ -33,7 +33,7 @@ spec:
    spec:
      containers:
      - name: haldane-server
-       image: "jtbarclay/haldane"
+       image: jtbarclay/haldane:latest
        ports:
        - containerPort: 5000
 ---
