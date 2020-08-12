@@ -7,18 +7,18 @@ platform:
   arch: arm
 
 steps:
-- name: publish
-  image: plugins/docker
-  settings:
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    repo: jtbarclay/haldane
-    tags: ["${DRONE_COMMIT_SHA:0:7}", "latest"]
+# - name: publish
+#   image: plugins/docker
+#   settings:
+#     username:
+#       from_secret: docker_username
+#     password:
+#       from_secret: docker_password
+#     repo: jtbarclay/haldane
+#     tags: ["${DRONE_COMMIT_SHA:0:7}", "latest"]
 
 - name: deploy
-  image: jtbarclay/drone-kubectl
+  image: jtbarclay/drone-kubectl:latest
   settings:
     kubernetes_server:
       from_secret: k3s_server
