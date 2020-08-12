@@ -6,7 +6,7 @@ const PORT = 5000;
 
 const bme680 = new Bme680(1, 0x77);
 
-let bmeData = [];
+let bmeData = ["test", "1"];
 
 bme680.initialize().then(async () => {
     console.log('Bme680 Sensor initialized');
@@ -17,7 +17,7 @@ bme680.initialize().then(async () => {
 });
 
 app.get('/', (req, res) => {
-    res.send(JSON.stringify(bmeData, null, 2));
+    res.send(bmeData);
 });
 
 app.listen(PORT, () => {
