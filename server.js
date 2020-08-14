@@ -38,6 +38,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static('public'));
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
     console.log('up and running on port', PORT);
 });
