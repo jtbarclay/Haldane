@@ -31,4 +31,4 @@ steps:
     container: haldane-server
     namespace: drone
     tag:                 
-      - latest
+      - ${DRONE_COMMIT_SHA:0:7}
